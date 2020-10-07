@@ -27,7 +27,7 @@ def load_data():
     path_dir = os.path.split(path)[0]
     filepath = os.path.join(path_dir, "data", file_name)
     try:
-        with open(filepath, "r") as myfile:
+        with open(filepath, "r+", encoding="utf-8") as myfile:
             raw = ''.join(myfile.readlines())
     except FileNotFoundError:
         # What do I raise here? Do I go straight to Http errors??
