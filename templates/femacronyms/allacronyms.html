@@ -1,0 +1,12 @@
+{% extends 'femacronyms/base.html' %}
+{% block content %}
+    <br/>
+    <!-- TODO don't hardcode year -->
+    <h1>All Acronyms</h1>
+    <h4><a href="/femacronyms">FEMA acronyms home</a></h4>
+    <h4><a href="/femacronyms/query">Search acronyms</a></h4>
+    {% autoescape off %}
+    {{ df_html }}
+    {% endautoescape %}
+
+{% endblock %}
