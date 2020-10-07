@@ -1,4 +1,13 @@
 {% extends 'femacronyms/base.html' %}
+
+{% block title %}
+    {% if form %}
+        Search FEMA acronyms
+    {% else %}
+        '{{ search_string }}' - FEMA acronyms
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     {% if form %}
         <h4><a href="/femacronyms">FEMA Acronyms home</a></h4>
