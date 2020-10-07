@@ -1,0 +1,36 @@
+{% extends 'femacronyms/base.html' %}
+{% block content %}
+    {% if form %}
+        <h4><a href="/femacronyms">FEMA Acronyms home</a></h4>
+        <br/>
+        <form action="" method="get">
+        <!-- GET means no CSRF {% csrf_token %} -->
+            {{ form.as_p }}
+            <input type="submit" value="GO">
+        </form>
+    {% else %}
+    <!-- TODO don't hardcode year -->
+    <h3><a href='/femacronyms/query'>Search again</a></h3>
+    <h1>Acronyms matching '{{ search_string }}'</h1>
+    {% if acronym_matches %}
+        {% autoescape off %}
+        {{ acronym_html }}
+        {% endautoescape %}
+    {% else %}
+        <p>(no matches)</p>
+    {% endif %}
+    <br/>
+    <h1>Full texts matching '{{ search_string }}'</h1>
+    {% if fulltext_matches %}
+        {% autoescape off %}
+        {{ fulltext_html }}
+        {% endautoescape %}
+    {% else %}
+        <p>(no matches)</p>
+    {% endif %}
+
+    <br/>
+    <h4><a href="/femacronyms">FEMA Acronyms home</a></h4>
+    {% endif %}
+
+{% endblock %}
