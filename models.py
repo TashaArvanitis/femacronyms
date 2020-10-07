@@ -65,7 +65,7 @@ def load_data():
             raw = ''.join(myfile.readlines())
     except FileNotFoundError:
         # What do I raise here? Do I go straight to Http errors??
-        raise Http404("Invalid pass name or year")
+        raise Http404("No acronyms found, sorry!")
 
     # PROCESS DATA
     df = _lines_to_acronym_df(raw)
